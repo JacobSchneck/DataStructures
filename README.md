@@ -1,2 +1,2 @@
 # DataStructures
-Just some datastructures review, move along
+Just some data structures review, move along

@@ -1,6 +1,3 @@
-package linkedlist;
-
-import node.Node; 
 
 public class SinglyLinkedList<T extends Comparable<T>> {
     /************** Instance Variables **************/
@@ -19,8 +16,14 @@ public class SinglyLinkedList<T extends Comparable<T>> {
     }
 
     public Node<T> pop() {
-        if (head == null || head.next == null) {
+        if (head == null ) {
             return null;
+        }
+
+        if (head.next == null) {
+            Node<T> temp = head;
+            head = null;
+            return temp;
         }
         
         Node<T> curr = head;
@@ -44,7 +47,7 @@ public class SinglyLinkedList<T extends Comparable<T>> {
         int count = 0;
         while (curr != null && inserted == false) {
             if (count == pos - 1) { // looking for node that links to the position (not position itself)
-                var temp = curr.next;
+                Node<T> temp = curr.next;
                 node.next = temp;
                 curr.next = node;
                 inserted = true;
@@ -57,6 +60,10 @@ public class SinglyLinkedList<T extends Comparable<T>> {
     }
 
     public boolean remove(T val) {
+        if (head == null) {
+            return false;
+        }
+
         boolean removed = false;
         Node<T> curr = head;        
         Node<T> prev = null;
@@ -92,7 +99,7 @@ public class SinglyLinkedList<T extends Comparable<T>> {
     @Override
     public String toString() {
         String result = "";
-        var curr = this.head;
+        Node<T> curr = this.head;
         while (curr != null) {
             if (curr.next == null) {
                 result += curr.val.toString();

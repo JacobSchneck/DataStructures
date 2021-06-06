@@ -2,11 +2,13 @@ public class TreeNode<T> {
 T val;
 TreeNode<T> left;
 TreeNode<T> right;
+int height;
 
 TreeNode(T val) {
     this.val = val;
     this.left = null;
     this.right = null;
+    this.height = 0;
 }
 
 public String toString() {

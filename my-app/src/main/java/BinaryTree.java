@@ -13,11 +13,11 @@ public class BinaryTree <T extends Comparable<T>> implements Trees<T> {
     }
 
     /************** find ****************************/
-    private boolean findRec(TreeNode<T> root, T val) {
+    private TreeNode<T> findRec(TreeNode<T> root, T val) {
         if (root == null) {
-            return false;
+            return null;
         } else if (root.val.compareTo(val) == 0) {
-            return true;
+            return root;
         } else if (root.val.compareTo(val) > 0) {
             return findRec(root.left, val);
         } else {
@@ -25,7 +25,7 @@ public class BinaryTree <T extends Comparable<T>> implements Trees<T> {
         }
     }
 
-    public boolean find(T val) {
+    public TreeNode<T> find(T val) {
         return findRec(root, val);
     }
 
